@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const SECRET = "luckyyadav123";
+
 const UserData = require("../database/userSchema");
 
 async function register(req, res) {
@@ -13,14 +14,15 @@ async function register(req, res) {
     return res.status(401).send("User Already Registered");
   }
 
-  let user = {
+    let user = {
+    //   name: name,
     email: email,
     password: password,
   };
 
   try {
     let userCred = await UserData.create(user);
-    return res.send("Registration Successful");
+    return res.send("Registration Successfull");
   } catch (error) {
     res.status(400).send("Email and Password mandatory ");
   }
@@ -29,18 +31,18 @@ async function register(req, res) {
 async function login(req, res) {
   let { email, password } = req.body;
 
-  let existingUser = await UserData.findOne({
+  let existinguser = await UserData.findOne({
     email: email,
   });
     
 
-  if (existingUser) {
-    if (existingUser.password == password) {
+  if (existinguser) {
+    if (existinguser.password == password) {
       let encryptionToken = jwt.sign(
         {
-          id: existingUser._id,
-          email: existingUser.email,
-          password: existingUser.password,
+          id: existinguser._id,
+          email: existinguser.email,
+          password: existinguser.password,
         },
         SECRET
       );
