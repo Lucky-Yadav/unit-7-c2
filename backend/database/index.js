@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 async function connectDatabase() {
-  const dbUri = "mongodb://localhost:27017/data";
+  const dbUri = "mongodb://localhost:27017/local";
 
   try {
     const response = await mongoose.connect(dbUri);
