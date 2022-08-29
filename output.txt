@@ -1,4 +1,4 @@
  
  video= "https://drive.google.com/file/d/1J5v7fPYMSGFwdN-j54GIw-0Xr_9dlBFY/view?usp=sharing"
 
- netlify = "
+ netlify = "https://merntodocontest.netlify.app/"
